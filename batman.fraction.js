@@ -1,6 +1,10 @@
 /**
  * Class BatmanFraction
  *
+ * How to use:
+ * var x = new BatmanFraction(2.0615);
+ * console.log(x.getAll());
+ *
  * Constructor:
  * @param number mixedA - decimal number for decimal input (or ceil part for rational input)
  * @param number mixedB - rational accuracy for decimal input (or numerator for rational input)
