@@ -146,6 +146,11 @@ describe("BatmanFraction Methods Testing", function ()
             return x.getAll();
         }()).toEqual({'c': 0, 'n': 1, 'd': 2});
         expect(x.toNumber()).toEqual(0.500000000000001);
+
+        var z = new BatmanFraction(0, 25, 100);
+
+        z.setAccuracy(6);
+        expect(z.toNumber()).toEqual(0.25);
     });
 
     it("takeDecimalFromRational", function () {
@@ -160,5 +165,12 @@ describe("BatmanFraction Methods Testing", function ()
         expect(x.isCeilNum()).toEqual(false);
         x.setDecimal(5000);
         expect(x.isCeilNum()).toEqual(true);
+    });
+
+    it("normalize", function () {
+        var z = new BatmanFraction(0, 25, 100);
+        z.normalize();
+        expect(z.getNumerator()).toEqual(1);
+        expect(z.getDenominator()).toEqual(4);
     });
 });

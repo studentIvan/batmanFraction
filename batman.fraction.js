@@ -16,11 +16,11 @@ function BatmanFraction(mixedA, mixedB, denominator, accuracy)
 {
     if (mixedB && denominator)
     {
-        this._decimalNum = null;
         this._ceilPart = mixedA * 1;
         this._numerator = mixedB * 1;
         this._denominator = denominator * 1;
         this._accuracy = (accuracy && (accuracy * 1) > 0) ? (accuracy * 1) : 6;
+        this._decimalNum = this._ceilPart + (this._numerator / this._denominator);
     }
     else
     {
@@ -138,6 +138,11 @@ function BatmanFraction(mixedA, mixedB, denominator, accuracy)
             'n': this.getNumerator(),
             'd': this.getDenominator()
         }
+    }
+
+    this.normalize = function()
+    {
+        this.setAccuracy(6);
     }
 
     this._calc = function()
